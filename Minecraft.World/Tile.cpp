@@ -16,6 +16,9 @@
 #include "net.minecraft.world.h"
 #include "net.minecraft.h"
 #include "Tile.h"
+#include "ColoredPlanksTile.h"
+#include "SimpleColoredTileItem.h"
+#include "LangEN.h"
 
 wstring Tile::TILE_DESCRIPTION_PREFIX = L"Tile.";
 
@@ -220,6 +223,8 @@ Tile *Tile::woolCarpet = NULL;
 Tile *Tile::clayHardened = NULL;
 Tile *Tile::coalBlock = NULL;
 
+Tile *Tile::coloredPlanks = NULL;
+
 DWORD Tile::tlsIdxShape = TlsAlloc();
 
 Tile::ThreadStorage::ThreadStorage()
@@ -262,7 +267,7 @@ void Tile::staticCtor()
 	Tile::grass = (GrassTile *) (new GrassTile(2))							->setDestroyTime(0.6f)->setSoundType(Tile::SOUND_GRASS)->setIconName(L"grass")->setDescriptionId(IDS_TILE_GRASS)->setUseDescriptionId(IDS_DESC_GRASS);
 	Tile::dirt = (new DirtTile(3))											->setDestroyTime(0.5f)->setSoundType(Tile::SOUND_GRAVEL)->setIconName(L"dirt")->setDescriptionId(IDS_TILE_DIRT)->setUseDescriptionId(IDS_DESC_DIRT);
 	Tile::cobblestone = (new Tile(4, Material::stone))						->setBaseItemTypeAndMaterial(Item::eBaseItemType_structblock,	Item::eMaterial_stone)->setDestroyTime(2.0f)->setExplodeable(10)->setSoundType(Tile::SOUND_STONE)->setIconName(L"cobblestone")->setDescriptionId(IDS_TILE_STONE_BRICK)->setUseDescriptionId(IDS_DESC_STONE_BRICK);
-	Tile::wood = (new WoodTile(5))											->setBaseItemTypeAndMaterial(Item::eBaseItemType_structwoodstuff,	Item::eMaterial_wood)->setDestroyTime(2.0f)->setExplodeable(5)->setSoundType(Tile::SOUND_WOOD)->setIconName(L"planks")->setDescriptionId(IDS_TILE_OAKWOOD_PLANKS)->sendTileData()->setUseDescriptionId(IDS_DESC_WOODENPLANKS);
+	Tile::wood = (new WoodTile(5))											->setBaseItemTypeAndMaterial(Item::eBaseItemType_structwoodstuff,	Item::eMaterial_wood)->setDestroyTime(2.0f)->setExplodeable(5)->setSoundType(Tile::SOUND_WOOD)->setIconName(L"planks")->setDescriptionId(IDS_TILE_OAKWOOD_PLANKS)->sendTileData()->setUseDescriptionId(DESC_PLANKS);
 	Tile::sapling = (new Sapling(6))										->setDestroyTime(0.0f)->setSoundType(Tile::SOUND_GRASS)->setIconName(L"sapling")->setDescriptionId(IDS_TILE_SAPLING)->sendTileData()->setUseDescriptionId(IDS_DESC_SAPLING)->disableMipmap();
 	Tile::unbreakable = (new Tile(7, Material::stone))						->setIndestructible()->setExplodeable(6000000)->setSoundType(Tile::SOUND_STONE)->setIconName(L"bedrock")->setDescriptionId(IDS_TILE_BEDROCK)->setNotCollectStatistics()->setUseDescriptionId(IDS_DESC_BEDROCK);
 	Tile::water = (LiquidTile *)(new LiquidTileDynamic(8, Material::water))	->setDestroyTime(100.0f)->setLightBlock(3)->setIconName(L"water_flow")->setDescriptionId(IDS_TILE_WATER)->setNotCollectStatistics()->sendTileData()->setUseDescriptionId(IDS_DESC_WATER);
@@ -442,6 +447,7 @@ void Tile::staticCtor()
 	Tile::clayHardened = (new Tile(172, Material::stone))			->setBaseItemTypeAndMaterial(Item::eBaseItemType_clay,	Item::eMaterial_clay)->setDestroyTime(1.25f)->setExplodeable(7)->setSoundType(SOUND_STONE)->setIconName(L"hardened_clay")->setDescriptionId(IDS_TILE_HARDENED_CLAY)->setUseDescriptionId(IDS_DESC_HARDENED_CLAY);
 	Tile::coalBlock = (new Tile(173, Material::stone))				->setBaseItemTypeAndMaterial(Item::eBaseItemType_block,	Item::eMaterial_coal)->setDestroyTime(5.0f)->setExplodeable(10)->setSoundType(SOUND_STONE)->setIconName(L"coal_block")->setDescriptionId(IDS_TILE_COAL)->setUseDescriptionId(IDS_DESC_COAL_BLOCK);
 
+	Tile::coloredPlanks = (new ColoredPlanksTile(174))				->setBaseItemTypeAndMaterial(Item::eBaseItemType_block,	Item::eMaterial_wood)->setDestroyTime(2.0f)->setExplodeable(5)->setSoundType(SOUND_WOOD)->setIconName(L"white_wood")->setUseDescriptionId(DESC_PLANKS_COLORED);
 
 	// Special cases for certain items since they can have different icons
 	Item::items[wool_Id]				= ( new WoolTileItem(Tile::wool_Id- 256) )->setIconName(L"cloth")->setDescriptionId(IDS_TILE_CLOTH)->setUseDescriptionId(IDS_DESC_WOOL);
@@ -471,6 +477,7 @@ void Tile::staticCtor()
 	Item::items[pistonStickyBase_Id]	= ( new PistonTileItem(Tile::pistonStickyBase_Id - 256) )->setDescriptionId(IDS_TILE_PISTON_STICK_BASE)->setUseDescriptionId(IDS_DESC_STICKY_PISTON);
 	Item::items[cobbleWall_Id]			= ( new MultiTextureTileItem(cobbleWall_Id - 256, cobbleWall, (int *)WallTile::COBBLE_NAMES, 2) )->setDescriptionId(IDS_TILE_COBBLESTONE_WALL)->setUseDescriptionId(IDS_DESC_COBBLESTONE_WALL);
 	Item::items[anvil_Id]				= ( new AnvilTileItem(anvil) )->setDescriptionId(IDS_TILE_ANVIL)->setUseDescriptionId(IDS_DESC_ANVIL);
+	Item::items[coloredPlanks_Id]           = ( new SimpleColoredTileItem(coloredPlanks_Id - 256));
 
 
 	for (int i = 0; i < 256; i++)

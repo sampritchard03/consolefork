@@ -93,6 +93,8 @@ UIScene_DebugOverlay::UIScene_DebugOverlay(int iPad, void *initData, UILayer *pa
 	m_mobFactories.push_back(eTYPE_PIG);
 	m_buttonListMobs.addItem( L"Sheep" );
 	m_mobFactories.push_back(eTYPE_SHEEP);
+	m_buttonListMobs.addItem( L"Lizard" );
+	m_mobFactories.push_back(eTYPE_LIZARD);
 	m_buttonListMobs.addItem( L"Squid" );
 	m_mobFactories.push_back(eTYPE_SQUID);
 	m_buttonListMobs.addItem( L"Wolf" );

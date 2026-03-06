@@ -801,7 +801,7 @@ void PreStitchedTextureMap::loadUVs()
 		ADD_ICON(8,		9,	L"melon_top");
 		ADD_ICON(8,		10,	L"cauldron_top");
 		ADD_ICON(8,		11,	L"cauldron_inner");
-		//ADD_ICON(8,		12,	L"unused");
+		ADD_ICON(8,		12,	L"white_wood");
 		ADD_ICON(8,		13,	L"mushroom_block_skin_stem");
 		ADD_ICON(8,		14,	L"mushroom_block_inside");
 		ADD_ICON(8,		15,	L"vine");
@@ -922,7 +922,7 @@ void PreStitchedTextureMap::loadUVs()
 		ADD_ICON(16,	0,	L"coal_block");
 		ADD_ICON(16,	1,	L"hardened_clay");
 		ADD_ICON(16,	2,	L"noteblock");
-		//ADD_ICON(16,	3,	L"unused");
+		//ADD_ICON(16,	3,	L"white_wood");
 		//ADD_ICON(16,	4,	L"unused");
 		//ADD_ICON(16,	5,	L"unused");
 		//ADD_ICON(16,	6,	L"unused");

@@ -25,6 +25,7 @@ StitchedTexture *StitchedTexture::create(const wstring &name)
 
 StitchedTexture::StitchedTexture(const wstring &name, const wstring &filename) : name(name)
 {
+
 	// 4J Initialisers
 	source = NULL;
 	rotated = false;
@@ -44,6 +45,7 @@ StitchedTexture::StitchedTexture(const wstring &name, const wstring &filename) :
 	flags = 0;
 	frames = NULL;
 	m_fileName = filename;
+
 }
 
 void StitchedTexture::freeFrameTextures()

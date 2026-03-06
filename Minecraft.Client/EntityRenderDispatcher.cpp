@@ -82,6 +82,7 @@
 #include "ZombieRenderer.h"
 #include "BatRenderer.h"
 #include "CaveSpiderRenderer.h"
+#include "LizardRenderer.h"
 
 double EntityRenderDispatcher::xOff = 0.0;
 double EntityRenderDispatcher::yOff = 0.0;
@@ -101,6 +102,7 @@ EntityRenderDispatcher::EntityRenderDispatcher()
 	renderers[eTYPE_CAVESPIDER] = new CaveSpiderRenderer();
 	renderers[eTYPE_PIG] = new PigRenderer(new PigModel(), new PigModel(0.5f), 0.7f);
 	renderers[eTYPE_SHEEP] = new SheepRenderer(new SheepModel(), new SheepFurModel(), 0.7f);
+	renderers[eTYPE_LIZARD] = new LizardRenderer();
 	renderers[eTYPE_COW] = new CowRenderer(new CowModel(), 0.7f);
 	renderers[eTYPE_MUSHROOMCOW] = new MushroomCowRenderer(new CowModel(), 0.7f);
 	renderers[eTYPE_WOLF] = new WolfRenderer(new WolfModel(), new WolfModel(), 0.5f);

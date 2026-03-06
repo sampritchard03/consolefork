@@ -2480,8 +2480,10 @@
     <ClInclude Include="HopperTileEntity.h" />
     <ClInclude Include="HorseInventoryMenu.h" />
     <ClInclude Include="HtmlString.h" />
+    <ClInclude Include="LangEN.h" />
     <ClInclude Include="LargeFireball.h" />
     <ClInclude Include="LeashItem.h" />
+    <ClInclude Include="Lizard.h" />
     <ClInclude Include="MapCloningRecipe.h" />
     <ClInclude Include="MapExtendingRecipe.h" />
     <ClInclude Include="MinecartChest.h" />
@@ -2704,6 +2706,7 @@
     <ClInclude Include="Score.h" />
     <ClInclude Include="Scoreboard.h" />
     <ClInclude Include="ScoreboardSaveData.h" />
+    <ClInclude Include="SimpleColoredTileItem.h" />
     <ClInclude Include="SimpleFoiledItem.h" />
     <ClInclude Include="SnowItem.h" />
     <ClInclude Include="SpawnEggItem.h" />
@@ -2815,6 +2818,7 @@
     <ClInclude Include="TargetGoal.h" />
     <ClInclude Include="Team.h" />
     <ClInclude Include="TemptGoal.h" />
+    <ClInclude Include="ColoredPlanksTile.h" />
     <ClInclude Include="ThornsEnchantment.h" />
     <ClInclude Include="TileDestructionPacket.h" />
     <ClInclude Include="TileEditorOpenPacket.h" />
@@ -3548,8 +3552,10 @@
     <ClCompile Include="HopperTileEntity.cpp" />
     <ClCompile Include="HorseInventoryMenu.cpp" />
     <ClCompile Include="HtmlString.cpp" />
+    <ClCompile Include="LangEN.cpp" />
     <ClCompile Include="LargeFireball.cpp" />
     <ClCompile Include="LeashItem.cpp" />
+    <ClCompile Include="Lizard.cpp" />
     <ClCompile Include="MinecartChest.cpp" />
     <ClCompile Include="MinecartContainer.cpp" />
     <ClCompile Include="MinecartFurnace.cpp" />
@@ -3628,6 +3634,7 @@
     <ClCompile Include="RotatedPillarTile.cpp" />
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="Scoreboard.cpp" />
+    <ClCompile Include="SimpleColoredTileItem.cpp" />
     <ClCompile Include="SimpleFoiledItem.cpp" />
     <ClCompile Include="SnowItem.cpp" />
     <ClCompile Include="StainedGlassBlock.cpp" />
@@ -3636,6 +3643,7 @@
     <ClCompile Include="StructureFeatureIO.cpp" />
     <ClCompile Include="StructureFeatureSavedData.cpp" />
     <ClCompile Include="Team.cpp" />
+    <ClCompile Include="ColoredPlanksTile.cpp" />
     <ClCompile Include="WeightedPressurePlateTile.cpp" />
     <ClCompile Include="WoodButtonTile.cpp" />
     <ClCompile Include="WoolTileItem.cpp" />

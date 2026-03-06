@@ -68,6 +68,7 @@
 
 #include "..\Common\Leaderboards\LeaderboardManager.h"
 
+#include "..\..\Minecraft.World\LangEN.h"
 //CMinecraftApp app;
 unsigned int CMinecraftApp::m_uiLastSignInData = 0;
 
@@ -209,11 +210,13 @@ CMinecraftApp::CMinecraftApp()
 	//	m_uiTransferSlotC=5;
 #endif
 
+/* remove debug dpad default
 #if (defined _CONTENT_PACAKGE) || (defined _XBOX)
 	m_bUseDPadForDebug = false;
 #else
 	m_bUseDPadForDebug = true;
 #endif
+*/
 
 #if ( defined __PS3__ || defined __ORBIS__ || defined _DURANGO  || defined __PSVITA__)
 	for(int i=0;i<XUSER_MAX_COUNT;i++)
@@ -304,11 +307,17 @@ void CMinecraftApp::DebugPrintf(int user, const char *szFormat, ...)
 #endif
 }
 
+
+
 LPCWSTR CMinecraftApp::GetString(int iID)
 {
-	//return L"Değişiklikler ve Yenilikler";
-	//return L"ÕÕÕÕÖÖÖÖ";
-	return app.m_stringTable->getString(iID);
+	if (iID < 5000) return app.m_stringTable->getString(iID);
+
+    auto it = g_names.find(iID);
+    if (it != g_names.end())
+        return it->second;
+	
+	return L"";
 }
 
 void CMinecraftApp::SetAction(int iPad, eXuiAction action, LPVOID param)

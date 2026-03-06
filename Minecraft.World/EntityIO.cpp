@@ -15,6 +15,8 @@
 #include "net.minecraft.world.level.h"
 #include "com.mojang.nbt.h"
 #include "EntityIO.h"
+#include "Lizard.h"
+#include "LangEN.h"
 
 unordered_map<wstring, entityCreateFn> *EntityIO::idCreateMap = new unordered_map<wstring, entityCreateFn>;
 unordered_map<eINSTANCEOF, wstring, eINSTANCEOFKeyHash, eINSTANCEOFKeyEq> *EntityIO::classIdMap = new unordered_map<eINSTANCEOF, wstring, eINSTANCEOFKeyHash, eINSTANCEOFKeyEq>;
@@ -104,6 +106,7 @@ void EntityIO::staticCtor()
 	setId(Ocelot::create, eTYPE_OCELOT, L"Ozelot", 98, eMinecraftColour_Mob_Ocelot_Colour1, eMinecraftColour_Mob_Ocelot_Colour2, IDS_OZELOT);
 	setId(VillagerGolem::create, eTYPE_VILLAGERGOLEM, L"VillagerGolem", 99);
 	setId(EntityHorse::create, eTYPE_HORSE, L"EntityHorse", 100, eMinecraftColour_Mob_Horse_Colour1, eMinecraftColour_Mob_Horse_Colour2, IDS_HORSE);
+	setId(Lizard::create, eTYPE_LIZARD, L"Lizard", 101, eMinecraftColour_Mob_Horse_Colour1, eMinecraftColour_Mob_Cow_Colour2, ID_LIZARD);
 
 	setId(Villager::create, eTYPE_VILLAGER, L"Villager", 120, eMinecraftColour_Mob_Villager_Colour1, eMinecraftColour_Mob_Villager_Colour2, IDS_VILLAGER);
 

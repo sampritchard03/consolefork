@@ -234,6 +234,9 @@
     <Filter Include="net\minecraft\world\scores\criteria">
       <UniqueIdentifier>{fabb7f9b-01fe-446a-ac67-f231110fec0a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="net\minecraft\lang">
+      <UniqueIdentifier>{08273ad7-c1ee-4065-a36d-f02855752bac}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="Tag.h">
@@ -3197,6 +3200,18 @@
     <ClInclude Include="FireworksMenu.h">
       <Filter>net\minecraft\world\inventory</Filter>
     </ClInclude>
+    <ClInclude Include="ColoredPlanksTile.h">
+      <Filter>net\minecraft\world\level\tile</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleColoredTileItem.h">
+      <Filter>net\minecraft\world\item</Filter>
+    </ClInclude>
+    <ClInclude Include="LangEN.h">
+      <Filter>net\minecraft\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="Lizard.h">
+      <Filter>net\minecraft\world\entity\animal</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -5625,6 +5640,18 @@
     </ClCompile>
     <ClCompile Include="EmptyMapItem.cpp">
       <Filter>net\minecraft\world\item</Filter>
+    </ClCompile>
+    <ClCompile Include="ColoredPlanksTile.cpp">
+      <Filter>net\minecraft\world\level\tile</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleColoredTileItem.cpp">
+      <Filter>net\minecraft\world\item</Filter>
+    </ClCompile>
+    <ClCompile Include="LangEN.cpp">
+      <Filter>net\minecraft\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="Lizard.cpp">
+      <Filter>net\minecraft\world\entity\animal</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

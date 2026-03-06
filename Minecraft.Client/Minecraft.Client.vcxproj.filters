@@ -3790,6 +3790,15 @@
     <ClInclude Include="Common\Audio\stb_vorbis.h">
       <Filter>Common\Source Files\Audio</Filter>
     </ClInclude>
+    <ClInclude Include="..\LangEN.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LizardRenderer.h">
+      <Filter>net\minecraft\client\renderer\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="LizardModel.h">
+      <Filter>net\minecraft\client\model</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -5945,6 +5954,12 @@
     </ClCompile>
     <ClCompile Include="Common\Filesystem\Filesystem.cpp">
       <Filter>Common\Source Files\Filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="LizardRenderer.cpp">
+      <Filter>net\minecraft\client\renderer\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="LizardModel.cpp">
+      <Filter>net\minecraft\client\model</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

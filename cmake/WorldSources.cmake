@@ -705,6 +705,7 @@ set(MINECRAFT_WORLD_SOURCES
   "TemperatureLayer.cpp"
   "TemperatureMixerLayer.cpp"
   "TemptGoal.cpp"
+  "TestTile.cpp"
   "TextureAndGeometryChangePacket.cpp"
   "TextureAndGeometryPacket.cpp"
   "TextureChangePacket.cpp"

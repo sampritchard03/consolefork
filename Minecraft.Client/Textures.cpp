@@ -52,6 +52,7 @@ wchar_t *Textures::preLoaded[TN_COUNT] =
 	L"mob/cow",
 	L"mob/pig",
 	L"mob/sheep",
+	L"mob/lizard",
 	L"mob/squid",
 	L"mob/wolf",
 	L"mob/wolf_tame",
@@ -289,6 +290,7 @@ void Textures::loadIndexedTextures()
 	for( int i = 0; i < TN_COUNT - 2; i++ )
 	{
 		preLoadedIdx[i] = loadTexture((TEXTURE_NAME)i, wstring(preLoaded[i]) + L".png");
+
 	}
 }
 
@@ -566,6 +568,7 @@ void Textures::clearLastBoundId()
 
 int Textures::loadTexture(TEXTURE_NAME texId, const wstring& resourceName)
 {
+
 // 	char buf[256];
 // 	wcstombs(buf, resourceName.c_str(), 256);
 // 	printf("Textures::loadTexture name - %s\n",buf);
@@ -672,6 +675,7 @@ void Textures::loadTexture(BufferedImage *img, int id, bool blur, bool clamp)
 	MemSect(33);
     glBindTexture(GL_TEXTURE_2D, id);
 
+
     if (MIPMAP)
 	{
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_LINEAR);
@@ -707,6 +711,8 @@ void Textures::loadTexture(BufferedImage *img, int id, bool blur, bool clamp)
 
     int w = img->getWidth();
     int h = img->getHeight();
+
+
 
     intArray rawPixels(w*h);
     img->getRGB(0, 0, w, h, rawPixels, 0, w);

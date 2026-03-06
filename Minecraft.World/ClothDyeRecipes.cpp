@@ -20,7 +20,13 @@ void ClothDyeRecipes::addRecipes(Recipes *r)
 			L"###",
 			L'#', new ItemInstance(Tile::clayHardened),
 			L'X', new ItemInstance(Item::dye_powder, 1, i),L'D');
-
+		r->addShapedRecipy(new ItemInstance(Tile::coloredPlanks, 8, ColoredTile::getItemAuxValueForTileData(i)), //
+			L"sssciczg",
+			L"###",
+			L"#X#",
+			L"###",
+			L'#', new ItemInstance(Tile::wood),
+			L'X', new ItemInstance(Item::dye_powder, 1, 15-i),L'D');
 #if 0
 		r->addShapedRecipy(new ItemInstance(Tile::stained_glass, 8, ColoredTile::getItemAuxValueForTileData(i)), //
 			L"sssczczg",

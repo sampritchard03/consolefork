@@ -102,6 +102,7 @@ void StringTable::ProcessStringTableData(void)
 				wstring stringId = dis2.readUTF();
 				wstring stringValue = dis2.readUTF();
 
+
 				m_stringsMap.insert( unordered_map<wstring, wstring>::value_type(stringId, stringValue) );
 			}
 		}

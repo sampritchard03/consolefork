@@ -365,6 +365,8 @@ public:
 	static const int clayHardened_Id = 172;
 	static const int coalBlock_Id = 173;
 
+	static const int coloredPlanks_Id = 174;
+
 
 	static Tile *stone;
 	static GrassTile *grass;
@@ -540,6 +542,8 @@ public:
 	static Tile *woolCarpet;
 	static Tile *clayHardened;
 	static Tile *coalBlock;
+
+	static Tile *coloredPlanks;
 
 	static void staticCtor();
 

@@ -210,6 +210,23 @@ void IUIScene_CreativeMenu::staticCtor()
 		ITEM_AUX(Tile::woolCarpet_Id,13)	// Green
 		ITEM_AUX(Tile::woolCarpet_Id,12)	// Brown
 
+		ITEM_AUX(Tile::coloredPlanks_Id,1)	// Red
+		ITEM_AUX(Tile::coloredPlanks_Id,14)	// Orange
+		ITEM_AUX(Tile::coloredPlanks_Id,11)	// Yellow
+		ITEM_AUX(Tile::coloredPlanks_Id,10)	// Lime
+		ITEM_AUX(Tile::coloredPlanks_Id,12)	// Light Blue
+		ITEM_AUX(Tile::coloredPlanks_Id,6)	// Cyan
+		ITEM_AUX(Tile::coloredPlanks_Id,4)	// Blue
+		ITEM_AUX(Tile::coloredPlanks_Id,5)	// Purple
+		ITEM_AUX(Tile::coloredPlanks_Id,13)	// Magenta
+		ITEM_AUX(Tile::coloredPlanks_Id,9)	// Pink
+		ITEM_AUX(Tile::coloredPlanks_Id,15)	// White
+		ITEM_AUX(Tile::coloredPlanks_Id,7)	// Light Gray
+		ITEM_AUX(Tile::coloredPlanks_Id,8)	// Gray
+		ITEM_AUX(Tile::coloredPlanks_Id,0)	// Black
+		ITEM_AUX(Tile::coloredPlanks_Id,2)	// Green
+		ITEM_AUX(Tile::coloredPlanks_Id,3)	// Brown
+
 		ITEM_AUX(Tile::stained_glass_Id,14)	// Red
 		ITEM_AUX(Tile::stained_glass_Id,1)	// Orange
 		ITEM_AUX(Tile::stained_glass_Id,4)	// Yellow
@@ -357,6 +374,7 @@ void IUIScene_CreativeMenu::staticCtor()
 		ITEM_AUX(Item::spawnEgg_Id, 100); // Horse
 		ITEM_AUX(Item::spawnEgg_Id, 100 | ((EntityHorse::TYPE_DONKEY + 1) << 12) ); // Donkey
 		ITEM_AUX(Item::spawnEgg_Id, 100 | ((EntityHorse::TYPE_MULE + 1) << 12)); // Mule
+		ITEM_AUX(Item::spawnEgg_Id, 101); // Lizard
 		ITEM_AUX(Item::spawnEgg_Id, 120); // Villager
 		ITEM(Item::record_01_Id)
 		ITEM(Item::record_02_Id)
