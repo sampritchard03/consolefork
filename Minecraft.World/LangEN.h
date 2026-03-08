@@ -28,8 +28,10 @@ constexpr int DESC_LIZARD_TAIL = 5102;
 
 // ENTITY NAMES
 constexpr int ID_LIZARD = 5200;
+constexpr int ID_BIRD = 5201;
 
 //ENTITY DESCRIPTIONS
 constexpr int DESC_LIZARD = 5300;
+constexpr int DESC_BIRD = 5301;
 
 extern const std::unordered_map<int, const wchar_t*> g_names;

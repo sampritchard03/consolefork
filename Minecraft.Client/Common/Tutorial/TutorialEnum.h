@@ -213,6 +213,7 @@ enum eTutorial_Hint
 	e_Tutorial_Hint_Bat,
 	e_Tutorial_Hint_Horse,
 	e_Tutorial_Hint_Lizard,
+	e_Tutorial_Hint_Bird,
 
 	e_Tutorial_Hint_Item_Shovel,
 	e_Tutorial_Hint_Item_Hatchet,

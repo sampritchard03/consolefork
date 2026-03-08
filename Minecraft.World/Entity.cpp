@@ -1063,7 +1063,10 @@ bool Entity::isInWater()
 
 bool Entity::updateInWaterState()
 {
-	if(level->checkAndHandleWater(bb->grow(0, -0.4f, 0)->shrink(0.001, 0.001, 0.001), Material::water, shared_from_this()))
+	float height = bb->y1-bb->y0; // Added height variable to make it so that small mobs can still float without affecting player interactions with water
+	height -= 1;
+	if (height > 0) height = 0;
+	if(level->checkAndHandleWater(bb->grow(0, -height, 0)->grow(0, -0.4f, 0)->shrink(0.001, 0.001, 0.001), Material::water, shared_from_this()))
 	{
 		if (!wasInWater && !firstTick && canCreateParticles())
 		{

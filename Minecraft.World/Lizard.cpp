@@ -28,7 +28,7 @@ Lizard::Lizard(Level *level) : Animal( level )
 	registerAttributes();
 	setHealth(getMaxHealth());
 
-	shedTime = random->nextInt(20 * 60 * 5) + 20 * 60 * 7;
+	shedTime = random->nextInt(20 * 60 * 5) + 20 * 60 * 2;
 	tailTime = 0;
 	hasDropped = false;
 
@@ -36,7 +36,7 @@ Lizard::Lizard(Level *level) : Animal( level )
 
 	getNavigation()->setAvoidWater(true);
 	goalSelector.addGoal(0, new FloatGoal(this));
-	goalSelector.addGoal(1, new PanicGoal(this, 1.25));
+	goalSelector.addGoal(1, new PanicGoal(this, 2.0));
 	goalSelector.addGoal(3, new BreedGoal(this, 1.0));
 	goalSelector.addGoal(4, new TemptGoal(this, 1.2, Item::carrots_Id, false));
 	goalSelector.addGoal(5, new FollowParentGoal(this, 1.1));
@@ -88,9 +88,9 @@ void Lizard::registerAttributes()
 	getAttribute(SharedMonsterAttributes::MOVEMENT_SPEED)->setBaseValue(0.25f);
 }
 
-void Lizard::newServerAiStep()
+void Lizard::tick()
 {
-	Animal::newServerAiStep();
+	Animal::tick();
 
 	if (!level->isClientSide) {
 		setTail(tailTime <= 0);
@@ -100,8 +100,8 @@ void Lizard::newServerAiStep()
 		hasDropped = false;
 		if (--shedTime <= 0) {
 			playSound( eSoundType_MOB_CHICKENPLOP, 1.0f, (random->nextFloat() - random->nextFloat()) * 0.2f + 1.0f);
-			spawnAtLocation(Item::egg->id, !isBaby() ? random->nextInt(3)+1 : 1);
-			shedTime = random->nextInt(20 * 60 * 5) + 20 * 60 * 7;
+			spawnAtLocation(Item::egg->id, 1);
+			shedTime = random->nextInt(20 * 60 * 5) + 20 * 60 * 2;
 		}
 	}
 }
@@ -115,7 +115,6 @@ void Lizard::defineSynchedData()
 void Lizard::addAdditonalSaveData(CompoundTag *tag) 
 {
 	Animal::addAdditonalSaveData(tag);
-	tag->putBoolean(L"Tail", hasTail());
 	tag->putInt(L"ShedTime", shedTime);
 	tag->putInt(L"TailTime", tailTime);
 }
@@ -125,11 +124,6 @@ void Lizard::readAdditionalSaveData(CompoundTag *tag)
 	Animal::readAdditionalSaveData(tag);
 	shedTime = tag->getInt(L"ShedTime");
 	tailTime = tag->getInt(L"TailTime");
-}
-
-int Lizard::getAmbientSound() 
-{
-	return eSoundType_MOB_PIG_AMBIENT;
 }
 
 int Lizard::getHurtSound() 

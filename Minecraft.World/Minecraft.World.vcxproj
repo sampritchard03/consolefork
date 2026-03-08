@@ -2444,6 +2444,7 @@
     <ClInclude Include="BiomeOverrideLayer.h" />
     <ClInclude Include="BiomeSource.h" />
     <ClInclude Include="BirchFeature.h" />
+    <ClInclude Include="Bird.h" />
     <ClInclude Include="Blaze.h" />
     <ClInclude Include="BlockDestructionProgress.h" />
     <ClInclude Include="BlockGenMethods.h" />
@@ -2701,6 +2702,7 @@
     <ClInclude Include="net.minecraft.world.scores.h" />
     <ClInclude Include="Objective.h" />
     <ClInclude Include="ObjectiveCriteria.h" />
+    <ClInclude Include="PanicBirdGoal.h" />
     <ClInclude Include="PlayerTeam.h" />
     <ClInclude Include="ItemDispenseBehaviors.h" />
     <ClInclude Include="PoweredMetalTile.h" />
@@ -3520,6 +3522,7 @@
     <ClCompile Include="BiomeOverrideLayer.cpp" />
     <ClCompile Include="BiomeSource.cpp" />
     <ClCompile Include="BirchFeature.cpp" />
+    <ClCompile Include="Bird.cpp" />
     <ClCompile Include="Blaze.cpp" />
     <ClCompile Include="BlockDestructionProgress.cpp" />
     <ClCompile Include="BlockGenMethods.cpp" />
@@ -3630,6 +3633,7 @@
     <ClCompile Include="NameTagItem.cpp" />
     <ClCompile Include="Objective.cpp" />
     <ClCompile Include="ObjectiveCriteria.cpp" />
+    <ClCompile Include="PanicBirdGoal.cpp" />
     <ClCompile Include="PlayerTeam.cpp" />
     <ClCompile Include="ItemDispenseBehaviors.cpp" />
     <ClCompile Include="PoweredMetalTile.cpp" />

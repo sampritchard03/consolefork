@@ -375,6 +375,7 @@ void IUIScene_CreativeMenu::staticCtor()
 		ITEM_AUX(Item::spawnEgg_Id, 100 | ((EntityHorse::TYPE_DONKEY + 1) << 12) ); // Donkey
 		ITEM_AUX(Item::spawnEgg_Id, 100 | ((EntityHorse::TYPE_MULE + 1) << 12)); // Mule
 		ITEM_AUX(Item::spawnEgg_Id, 101); // Lizard
+		ITEM_AUX(Item::spawnEgg_Id, 102); // Bird
 		ITEM_AUX(Item::spawnEgg_Id, 120); // Villager
 		ITEM(Item::record_01_Id)
 		ITEM(Item::record_02_Id)

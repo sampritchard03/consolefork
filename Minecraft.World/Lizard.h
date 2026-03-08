@@ -2,7 +2,6 @@
 #include "Animal.h"
 
 class Player;
-class ControlledByPlayerGoal;
 
 class Lizard : public Animal
 {
@@ -22,7 +21,7 @@ public:
 
 protected:
 	virtual void registerAttributes();
-	virtual void newServerAiStep();
+	virtual void tick();
 
 protected:
 	virtual void defineSynchedData();
@@ -33,7 +32,6 @@ public:
 	virtual void readAdditionalSaveData(CompoundTag *tag);
 
 protected:
-	virtual int getAmbientSound();
 	virtual int getHurtSound();
 	virtual int getDeathSound();
 	virtual void playStepSound(int xt, int yt, int zt, int t);

@@ -16,6 +16,7 @@
 #include "com.mojang.nbt.h"
 #include "EntityIO.h"
 #include "Lizard.h"
+#include "Bird.h"
 #include "LangEN.h"
 
 unordered_map<wstring, entityCreateFn> *EntityIO::idCreateMap = new unordered_map<wstring, entityCreateFn>;
@@ -107,6 +108,7 @@ void EntityIO::staticCtor()
 	setId(VillagerGolem::create, eTYPE_VILLAGERGOLEM, L"VillagerGolem", 99);
 	setId(EntityHorse::create, eTYPE_HORSE, L"EntityHorse", 100, eMinecraftColour_Mob_Horse_Colour1, eMinecraftColour_Mob_Horse_Colour2, IDS_HORSE);
 	setId(Lizard::create, eTYPE_LIZARD, L"Lizard", 101, eMinecraftColour_Lizard1, eMinecraftColour_Lizard2, ID_LIZARD);
+	setId(Bird::create, eTYPE_BIRD, L"Bird", 102, eMinecraftColour_Lizard1, eMinecraftColour_Lizard2, ID_BIRD);
 
 	setId(Villager::create, eTYPE_VILLAGER, L"Villager", 120, eMinecraftColour_Mob_Villager_Colour1, eMinecraftColour_Mob_Villager_Colour2, IDS_VILLAGER);
 

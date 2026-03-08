@@ -32,8 +32,10 @@ const std::unordered_map<int, const wchar_t*> g_names = {
     // ENTITY NAMES
 
     {ID_LIZARD, L"Lizard"},
+    {ID_BIRD, L"Bird"},
 
     // ENTITY DESCRIPTIONS (HINTS)
 
-    {DESC_LIZARD, L"A small reptile found in deserts. It drops its tail when scared, and sheds its skin. Once befriended by feeding it crickets, it can ride on top of your head."}
+    {DESC_LIZARD, L"A small reptile found in deserts. It drops its tail when scared, and sheds its skin. Once befriended by feeding it crickets, it can ride on top of your head."},
+    {DESC_BIRD, L"A tiny, flighty creature. It flocks with other birds. Befriending the birds by feeding them seeds will bring good fortune. They will remember if you attack them..."}
 };

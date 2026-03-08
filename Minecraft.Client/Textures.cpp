@@ -53,6 +53,7 @@ const wchar_t *Textures::preLoaded[TN_COUNT] =
 	L"mob/pig",
 	L"mob/sheep",
 	L"mob/lizard",
+	L"mob/bird",
 	L"mob/squid",
 	L"mob/wolf",
 	L"mob/wolf_tame",
@@ -248,7 +249,7 @@ const wchar_t *Textures::preLoaded[TN_COUNT] =
 	L"/AH_0009",*/
 
 	L"gui/items",
-	L"terrain",
+	L"terrain"
 };
 
 Textures::Textures(TexturePackRepository *skins, Options *options)

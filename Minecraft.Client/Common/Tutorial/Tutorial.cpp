@@ -829,6 +829,7 @@ Tutorial::Tutorial(int iPad, bool isFullTutorial /*= false*/) : m_iPad( iPad )
 	if(!isHintCompleted(e_Tutorial_Hint_Bat)) addHint(e_Tutorial_State_Gameplay, new LookAtEntityHint(e_Tutorial_Hint_Bat, this, IDS_DESC_BAT, IDS_BAT, eTYPE_BAT) );
 	if(!isHintCompleted(e_Tutorial_Hint_Horse)) addHint(e_Tutorial_State_Gameplay, new LookAtEntityHint(e_Tutorial_Hint_Horse, this, IDS_DESC_HORSE, IDS_HORSE, eTYPE_HORSE) );
 	if(!isHintCompleted(e_Tutorial_Hint_Lizard)) addHint(e_Tutorial_State_Gameplay, new LookAtEntityHint(e_Tutorial_Hint_Lizard, this, DESC_LIZARD, ID_LIZARD, eTYPE_LIZARD) );
+	if(!isHintCompleted(e_Tutorial_Hint_Bird)) addHint(e_Tutorial_State_Gameplay, new LookAtEntityHint(e_Tutorial_Hint_Bird, this, DESC_BIRD, ID_BIRD, eTYPE_BIRD) );
 
 	/*
 	* ITEM HINTS

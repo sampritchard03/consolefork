@@ -3212,6 +3212,12 @@
     <ClInclude Include="Lizard.h">
       <Filter>net\minecraft\world\entity\animal</Filter>
     </ClInclude>
+    <ClInclude Include="Bird.h">
+      <Filter>net\minecraft\world\entity\animal</Filter>
+    </ClInclude>
+    <ClInclude Include="PanicBirdGoal.h">
+      <Filter>net\minecraft\world\entity\ai\goal</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -5652,6 +5658,12 @@
     </ClCompile>
     <ClCompile Include="Lizard.cpp">
       <Filter>net\minecraft\world\entity\animal</Filter>
+    </ClCompile>
+    <ClCompile Include="Bird.cpp">
+      <Filter>net\minecraft\world\entity\animal</Filter>
+    </ClCompile>
+    <ClCompile Include="PanicBirdGoal.cpp">
+      <Filter>net\minecraft\world\entity\ai\goal</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
