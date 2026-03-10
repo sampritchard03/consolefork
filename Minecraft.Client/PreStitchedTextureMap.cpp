@@ -18,8 +18,19 @@
 #include "SimpleIcon.h"
 #include "CompassTexture.h"
 #include "ClockTexture.h"
+#include "BufferedImage.h"
 
 const wstring PreStitchedTextureMap::NAME_MISSING_TEXTURE = L"missingno";
+
+const wchar_t *PreStitchedTextureMap::newItemTextures[amountNewItemTextures] =
+{
+	L"newItem/lizard_tail.png" //  16   0
+};
+
+const wchar_t *PreStitchedTextureMap::newBlockTextures[amountNewBlockTextures] =
+{
+	L"newBlock/colored_planks.png" //  20   0
+};
 
 PreStitchedTextureMap::PreStitchedTextureMap(int type, const wstring &name, const wstring &path, BufferedImage *missingTexture, bool mipmap) : iconType(type), name(name), path(path), extension(L".png")
 {
@@ -116,7 +127,63 @@ void PreStitchedTextureMap::stitch()
 	}
 
 	//BufferedImage *image = new BufferedImage(texturePack->getResource(L"/" + filename),false,true,drive); //ImageIO::read(texturePack->getResource(L"/" + filename));
-	BufferedImage *image = texturePack->getImageResource(filename, false, true, drive);
+	BufferedImage* image = texturePack->getImageResource(filename, false, true, drive);
+
+	if (!(iconType == Icon::TYPE_TERRAIN))
+	{
+		int oldW = image->getWidth();
+		int oldH = image->getHeight();
+
+		BufferedImage* newImage = new BufferedImage(oldW, oldH * 2, BufferedImage::TYPE_INT_ARGB); // 256x512
+
+		int newW = newImage->getWidth();
+		int newH = newImage->getHeight();
+
+		int* src = image->getData();
+		int* dst = newImage->getData();
+
+		memcpy(dst, src, oldW * oldH * sizeof(int));
+
+		for (int i = 0; i < amountNewItemTextures; i++) {
+			TexturePack* default = Minecraft::GetInstance()->skins->getDefault();
+			BufferedImage* itemImage = default->getImageResource(newItemTextures[i], true, false, default->getPath(false));
+			int* imgSrc = itemImage->getData();
+
+			int px = (i % 16) * 16;
+			int py = 256 + (i / 16) * 16;
+
+			for (int y = 0; y < 16; y++) {
+				memcpy(
+					&dst[(py + y) * newW + px * 16],  // destination row
+					&imgSrc[y * 16],                        // source row
+					16 * sizeof(int)                           // copy 16 pixels
+				);
+			};
+		};
+
+		image = newImage;
+	} else
+	{
+		int w = image->getWidth();
+		int* src = image->getData();
+		for (int i = 0; i < amountNewBlockTextures; i++) {
+			TexturePack* default = Minecraft::GetInstance()->skins->getDefault();
+			BufferedImage* blockImage = default->getImageResource(newBlockTextures[i], true, false, default->getPath(false));
+			int* imgSrc = blockImage->getData();
+
+			int px = (i % 16) * 16;
+			int py = 320 + (i / 16) * 16;
+
+			for (int y = 0; y < 16; y++) {
+				memcpy(
+					&src[(py + y) * w + px * 16],  // destination row
+					&imgSrc[y * 16],                        // source row
+					16 * sizeof(int)                           // copy 16 pixels
+				);
+			};
+		};
+	};
+
 	MemSect(0);
 	int height = image->getHeight();
 	int width = image->getWidth();
@@ -803,7 +870,7 @@ void PreStitchedTextureMap::loadUVs()
 		ADD_ICON(8,		9,	L"melon_top");
 		ADD_ICON(8,		10,	L"cauldron_top");
 		ADD_ICON(8,		11,	L"cauldron_inner");
-		ADD_ICON(8,		12,	L"white_wood");
+		//ADD_ICON(8,		12,	L"white_wood");
 		ADD_ICON(8,		13,	L"mushroom_block_skin_stem");
 		ADD_ICON(8,		14,	L"mushroom_block_inside");
 		ADD_ICON(8,		15,	L"vine");
@@ -988,5 +1055,7 @@ void PreStitchedTextureMap::loadUVs()
 		ADD_ICON(19,	13,	L"glass_pane_top_silver");
 		ADD_ICON(19,	14,	L"glass_pane_top_white");
 		ADD_ICON(19,	15,	L"glass_pane_top_yellow");
+
+		ADD_ICON(20,	0,	L"white_wood");
 	}
 }

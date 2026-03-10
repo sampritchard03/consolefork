@@ -14,6 +14,7 @@ class IntBuffer;
 class PreStitchedTextureMap;
 class ResourceLocation;
 
+constexpr int VANILLA_COUNT = 114;
 
 typedef enum _TEXTURE_NAME
 {
@@ -43,8 +44,6 @@ typedef enum _TEXTURE_NAME
 	TN_MOB_COW,
 	TN_MOB_PIG,
 	TN_MOB_SHEEP,
-	TN_MOB_LIZARD,
-	TN_MOB_BIRD,
 	TN_MOB_SQUID,
 	TN_MOB_WOLF,
 	TN_MOB_WOLF_TAME,
@@ -229,6 +228,13 @@ typedef enum _TEXTURE_NAME
 	TN_AP_0023,
 	TN_AH_0008,
 	TN_AH_0009,*/
+
+	// Modded Textures
+
+	TN_MOB_LIZARD,
+	TN_MOB_BIRD,
+
+	// End modded Textures
 
 	TN_GUI_ITEMS,
 	TN_TERRAIN,

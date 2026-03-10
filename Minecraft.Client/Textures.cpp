@@ -52,8 +52,6 @@ const wchar_t *Textures::preLoaded[TN_COUNT] =
 	L"mob/cow",
 	L"mob/pig",
 	L"mob/sheep",
-	L"mob/lizard",
-	L"mob/bird",
 	L"mob/squid",
 	L"mob/wolf",
 	L"mob/wolf_tame",
@@ -248,8 +246,11 @@ const wchar_t *Textures::preLoaded[TN_COUNT] =
 	L"/AH_0008",
 	L"/AH_0009",*/
 
+	L"mob/lizard",
+	L"mob/bird",
+
 	L"gui/items",
-	L"terrain"
+	L"terrain",
 };
 
 Textures::Textures(TexturePackRepository *skins, Options *options)
@@ -1396,6 +1397,7 @@ BufferedImage *Textures::readImage(TEXTURE_NAME texId, const wstring& name)	// 4
 {
 	BufferedImage *img=NULL;
 	MemSect(32);
+
 	// is this image one of the Title Update ones?
 	bool isTu = IsTUImage(texId, name);
 	wstring drive = L"";
@@ -1414,7 +1416,7 @@ BufferedImage *Textures::readImage(TEXTURE_NAME texId, const wstring& name)	// 4
 			char *pchUsrDir = app.GetBDUsrDirPath(pchName);
 			wstring wstr (pchUsrDir, pchUsrDir+strlen(pchUsrDir));
 
-			if(isTu)
+			if(isTu && !isNew)
 			{
 				drive= wstr + L"\\Common\\res\\TitleUpdate\\";
 
@@ -1432,7 +1434,7 @@ BufferedImage *Textures::readImage(TEXTURE_NAME texId, const wstring& name)	// 4
 
 		const char *pchDrive=wstringtofilename(drive);
 
-		if(IsOriginalImage(texId, name) || isTu)
+		if(IsOriginalImage(texId, name) || texId >= VANILLA_COUNT || isTu)
 		{
 			img = skins->getDefault()->getImageResource(name,false,isTu,drive); //new BufferedImage(name,false,isTu,drive);
 		}
@@ -1558,7 +1560,7 @@ bool Textures::IsTUImage(TEXTURE_NAME texId, const wstring& name)
 	{
 		while(TUImages[i] < TN_COUNT)
 		{
-			if(texId == TUImages[i])
+			if((i < VANILLA_COUNT || i >= TN_COUNT-2) && texId == TUImages[i])
 			{
 				return true;
 			}

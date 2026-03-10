@@ -6,8 +6,9 @@ class PathfinderMob;
 
 class RandomStrollGoal : public Goal
 {
-private:
+protected:
 	PathfinderMob *mob;
+private:
 	double wantedX, wantedY, wantedZ;
 	double speedModifier;
 
@@ -17,4 +18,5 @@ public:
 	virtual bool canUse();
 	virtual bool canContinueToUse();
 	virtual void start();
+	virtual void stop();
 };

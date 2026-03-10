@@ -14,8 +14,12 @@ RandomStrollGoal::RandomStrollGoal(PathfinderMob *mob, double speedModifier)
 	setRequiredControlFlags(Control::MoveControlFlag | Control::LookControlFlag);
 }
 
+void RandomStrollGoal::stop() {
+	mob->getNavigation()->stop();
+}
+
 bool RandomStrollGoal::canUse()
-{
+{	
 	// 4J - altered a little so we can do some more random strolling when appropriate, to try and move any animals that aren't confined to a fenced-off region far enough to determine we can despawn them
 	if (mob->getNoActionTime() < SharedConstants::TICKS_PER_SECOND * 5)
 	{

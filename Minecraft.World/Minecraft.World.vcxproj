@@ -2479,6 +2479,7 @@
     <ClInclude Include="FireworksRocketEntity.h" />
     <ClInclude Include="FlatGeneratorInfo.h" />
     <ClInclude Include="FlatLayerInfo.h" />
+    <ClInclude Include="FlyingBirdGoal.h" />
     <ClInclude Include="GameRules.h" />
     <ClInclude Include="HayBlockTile.h" />
     <ClInclude Include="HealthCriteria.h" />
@@ -2709,6 +2710,7 @@
     <ClInclude Include="PoweredRailTile.h" />
     <ClInclude Include="AbstractProjectileDispenseBehavior.h" />
     <ClInclude Include="RailTile.h" />
+    <ClInclude Include="RandomStrollBirdGoal.h" />
     <ClInclude Include="Redstone.h" />
     <ClInclude Include="RepeaterTile.h" />
     <ClInclude Include="RotatedPillarTile.h" />
@@ -3554,6 +3556,7 @@
     <ClCompile Include="FireworksRocketEntity.cpp" />
     <ClCompile Include="FlatGeneratorInfo.cpp" />
     <ClCompile Include="FlatLayerInfo.cpp" />
+    <ClCompile Include="FlyingBirdGoal.cpp" />
     <ClCompile Include="GameRules.cpp" />
     <ClCompile Include="HayBlockTile.cpp" />
     <ClCompile Include="HealthCriteria.cpp" />
@@ -3640,6 +3643,7 @@
     <ClCompile Include="PoweredRailTile.cpp" />
     <ClCompile Include="AbstractProjectileDispenseBehavior.cpp" />
     <ClCompile Include="RailTile.cpp" />
+    <ClCompile Include="RandomStrollBirdGoal.cpp" />
     <ClCompile Include="Redstone.cpp" />
     <ClCompile Include="RepeaterTile.cpp" />
     <ClCompile Include="RotatedPillarTile.cpp" />

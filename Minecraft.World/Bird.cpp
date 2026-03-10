@@ -19,6 +19,8 @@
 #include "Tile.h"
 #include "MobCategory.h"
 #include "PanicBirdGoal.h"
+#include "RandomStrollBirdGoal.h"
+#include "FlyingBirdGoal.h"
 
 
 Bird::Bird(Level *level) : Animal( level )
@@ -33,21 +35,44 @@ Bird::Bird(Level *level) : Animal( level )
 
 	getNavigation()->setAvoidWater(true);
 	goalSelector.addGoal(0, new FloatGoal(this));
-	panicGoal = new PanicBirdGoal(this);
-	goalSelector.addGoal(1, panicGoal);
-	goalSelector.addGoal(2, new BreedGoal(this, 1.0));
-	goalSelector.addGoal(3, new TemptGoal(this, 1.2, Item::seeds_wheat_Id, false));
-	goalSelector.addGoal(4, new FollowParentGoal(this, 1.1));
-
-	goalSelector.addGoal(6, new RandomStrollGoal(this, 1.0));
+	goalSelector.addGoal(2, new FlyingBirdGoal(this));
+	goalSelector.addGoal(3, new BreedGoal(this, 1.0));
+	goalSelector.addGoal(4, new TemptGoal(this, 1.2, Item::seeds_wheat_Id, false));
+	goalSelector.addGoal(5, new FollowParentGoal(this, 1.1));
+	goalSelector.addGoal(6, new RandomStrollBirdGoal(this, 1.0));
 	goalSelector.addGoal(7, new LookAtPlayerGoal(this, typeid(Player), 6));
 	goalSelector.addGoal(8, new RandomLookAroundGoal(this));
 }
 
+void Bird::causeFallDamage(float distance) {
+}
+
+void Bird::startFlying(bool withFlock)
+{
+	if (!level->isClientSide && birdState() != Bird::FLYING) {
+		setBirdState(Bird::FLYING);
+		flightTime = 0;
+		groundY = getGroundHeight();
+		
+		if (withFlock) {
+			std::vector<std::shared_ptr<Entity>> nearbyBirds = *level->getEntitiesOfClass(typeid(Bird), bb->grow(12, 12, 12));
+
+			for (auto& entity : nearbyBirds)
+			{
+				std::shared_ptr<Bird> bird = std::dynamic_pointer_cast<Bird>(entity);
+				if (bird)
+				{
+					bird.get()->startFlying(true);
+				}
+			}
+		}
+	}
+}
+
 int Bird::getGroundHeight() {
-	int x = (int)x;
-	int y = (int)y;
-	int z = (int)z;
+	int x = (int)this->x;
+	int y = (int)this->y;
+	int z = (int)this->z;
 
 	while(y > 0) {
 		int id = level->getTile(x, y, z);
@@ -63,6 +88,11 @@ int Bird::getGroundHeight() {
 	return y + 1;
 }
 
+bool Bird::hurt(DamageSource *source, float dmg) {
+	startFlying(true);               
+	return Animal::hurt(source, dmg);
+}
+
 bool Bird::useNewAi()
 {
 	return true;
@@ -70,11 +100,19 @@ bool Bird::useNewAi()
 
 void Bird::tick() {
 	Animal::tick();
-	if (!this->getNavigation()->isDone() && this->onGround) {
-		this->yd=.2;
+	if (!this->getNavigation()->isDone()) {
+		if (this->onGround) this->yd = .2;
 	}
+	if (birdState() != FLYING) {
+		if (isStandingOnLeaves() || !this->level->isDay()) setBirdState(PERCHED);
+		else setBirdState(IDLE);
+	}
+	flightTime++;
 }
 
+bool Bird::isStandingOnLeaves() {
+	return false;
+}
 
 void Bird::registerAttributes()
 {

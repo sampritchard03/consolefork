@@ -3218,6 +3218,12 @@
     <ClInclude Include="PanicBirdGoal.h">
       <Filter>net\minecraft\world\entity\ai\goal</Filter>
     </ClInclude>
+    <ClInclude Include="RandomStrollBirdGoal.h">
+      <Filter>net\minecraft\world\entity\ai\goal</Filter>
+    </ClInclude>
+    <ClInclude Include="FlyingBirdGoal.h">
+      <Filter>net\minecraft\world\entity\ai\goal</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -5663,6 +5669,12 @@
       <Filter>net\minecraft\world\entity\animal</Filter>
     </ClCompile>
     <ClCompile Include="PanicBirdGoal.cpp">
+      <Filter>net\minecraft\world\entity\ai\goal</Filter>
+    </ClCompile>
+    <ClCompile Include="RandomStrollBirdGoal.cpp">
+      <Filter>net\minecraft\world\entity\ai\goal</Filter>
+    </ClCompile>
+    <ClCompile Include="FlyingBirdGoal.cpp">
       <Filter>net\minecraft\world\entity\ai\goal</Filter>
     </ClCompile>
   </ItemGroup>

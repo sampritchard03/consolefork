@@ -13,6 +13,10 @@ class PreStitchedTextureMap : public IconRegister
 {
 public:
 	static const wstring NAME_MISSING_TEXTURE;
+	static const int amountNewItemTextures = 1;
+	static const wchar_t *newItemTextures[amountNewItemTextures];
+	static const int amountNewBlockTextures = 1;
+	static const wchar_t *newBlockTextures[amountNewBlockTextures];
 
 private:
 	const int iconType;

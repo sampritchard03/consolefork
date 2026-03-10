@@ -99,13 +99,10 @@ void BirdModel::render(shared_ptr<Entity> entity, float time, float r, float bob
 void BirdModel::setupAnim(float time, float r, float bob, float yRot, float xRot, float scale, shared_ptr<Entity> entity, unsigned int uiBitmaskOverrideAnim)
 {
 	float rad = (float) (180 / PI);
-	body->xRot = (xRot) / rad + (entity.get()->yd);
+	body->xRot = (xRot) / rad;
     body->yRot = yRot / rad;
 
     tail->xRot = 0.25F;
-
-    legLeft->xRot = (Mth::cos(time * 0.6662f) * 1.4f) * r;
-    legRight->xRot = (Mth::cos(time * 0.6662f + PI) * 1.4f) * r;
 
 	// wing flap code
 }

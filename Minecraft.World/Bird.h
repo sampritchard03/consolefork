@@ -2,7 +2,6 @@
 #include "Animal.h"
 
 class Player;
-class PanicBirdGoal;
 
 class Bird : public Animal
 {
@@ -14,7 +13,6 @@ public:
 		FLYING,
 		PERCHED
 	};
-	PanicBirdGoal *panicGoal;
 	int flightTime;
 	int groundY;
 private:
@@ -24,6 +22,7 @@ public:
 	Bird(Level *level);
 	virtual bool useNewAi();
 	virtual void tick();
+	virtual void startFlying(bool withFlock);
 
 protected:
 	virtual void registerAttributes();
@@ -32,11 +31,14 @@ protected:
 	virtual void defineSynchedData();
 
 public:
+	virtual bool isStandingOnLeaves();
 	virtual int getGroundHeight();
 	virtual int birdState();
 	virtual void setBirdState(int birdState);
 	virtual void addAdditonalSaveData(CompoundTag *tag);
 	virtual void readAdditionalSaveData(CompoundTag *tag);
+	virtual void causeFallDamage(float distance);
+	virtual bool hurt(DamageSource *source, float dmg);
 
 protected:
 	virtual int getAmbientSound();

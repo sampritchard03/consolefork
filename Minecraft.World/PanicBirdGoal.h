@@ -9,8 +9,6 @@ class PanicBirdGoal : public Goal
 {
 private:
 	Bird *mob;
-	virtual void alertFlockToFlee();
-	virtual void panic();
 
 public:
 	PanicBirdGoal(Bird *mob);

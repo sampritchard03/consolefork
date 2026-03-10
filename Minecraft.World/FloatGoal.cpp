@@ -19,5 +19,4 @@ bool FloatGoal::canUse()
 void FloatGoal::tick()
 {
 	if (mob->getRandom()->nextFloat() < 0.8f) mob->getJumpControl()->jump();
-	//mob->yd += 0.1;
 }
