@@ -12,6 +12,9 @@ public:
     bool sneaking;
 	bool sprinting;
 
+    float lastControllerXA;
+    float lastControllerYA;
+
 	Input();
 
     virtual void tick(LocalPlayer *player);

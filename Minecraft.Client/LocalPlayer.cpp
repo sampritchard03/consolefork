@@ -128,6 +128,17 @@ LocalPlayer::~LocalPlayer()
 		delete input;
 }
 
+void LocalPlayer::hop(float x, float y) {
+    yd += 0.28f;
+
+    float rad = yRot * (PI / 180.0f);
+
+    float speed = 0.5f;
+
+    xd = (x * cos(rad) - y * sin(rad)) * speed;
+    zd = (y * cos(rad) + x * sin(rad)) * speed;
+}
+
 void LocalPlayer::calculateFlight(float xa, float ya, float za)
 {
 	xa = xa * minecraft->options->flySpeed;

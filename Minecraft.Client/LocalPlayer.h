@@ -98,6 +98,7 @@ protected:
 	bool isEffectiveAi();
 
 public:
+	virtual void hop(float x, float y);
 	virtual void aiStep();
 	virtual void changeDimension(int i);
 	virtual float getFieldOfViewModifier();

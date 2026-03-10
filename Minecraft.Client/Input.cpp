@@ -43,6 +43,21 @@ void Input::tick(LocalPlayer *player)
 	if( pMinecraft->localgameModes[iPad]->isInputAllowed(MINECRAFT_ACTION_FORWARD) || pMinecraft->localgameModes[iPad]->isInputAllowed(MINECRAFT_ACTION_BACKWARD) )
 		controllerYA = InputManager.GetJoypadStick_LY(iPad);
 
+	float c = sqrt(controllerXA*controllerXA + controllerYA*controllerYA);
+	float c1 = sqrt(lastControllerXA*lastControllerXA + lastControllerYA*lastControllerYA);
+
+	if (c - c1 > 0.5F) {
+		if (player->onGround) {
+			if (c > 0.0F) player->hop(controllerXA/c, controllerYA/c);
+		}
+		if (controllerYA > 0.0F) {
+			sprinting = true;
+		}
+	}
+
+	lastControllerXA = controllerXA;
+	lastControllerYA = controllerYA;
+
 	float kbXA = 0.0f;
 	float kbYA = 0.0f;
 #ifdef _WINDOWS64
@@ -109,6 +124,10 @@ void Input::tick(LocalPlayer *player)
 			bool ctrlHeld = g_KBMInput.IsKeyDown(KeyboardMouseInput::KEY_SPRINT);
 			bool movingForward = (kbYA > 0.0f);
 
+			if (ctrlHeld && player->onGround) {
+				player->hop(kbXA, kbYA);
+			}
+
 			if (ctrlHeld && movingForward)
 			{
 				sprinting = true;
@@ -121,7 +140,7 @@ void Input::tick(LocalPlayer *player)
 	}
 	else if (iPad == 0)
 	{
-		sprinting = false;
+		//sprinting = false;
 	}
 #endif
 
