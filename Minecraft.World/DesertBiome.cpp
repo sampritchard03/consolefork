@@ -12,9 +12,9 @@ DesertBiome::DesertBiome(int id) : Biome(id)
 	friendlies_wolf.clear(); 	// 4J added
 
 	friendlies.push_back(new MobSpawnerData(eTYPE_LIZARD, 10, 1, 2));
-
-	topMaterial = (BYTE) Tile::sand_Id;
-	material = (BYTE) Tile::sand_Id;
+	
+	topMaterial = static_cast<BYTE>(Tile::sand_Id);
+	material = static_cast<BYTE>(Tile::sand_Id);
 
 	decorator->treeCount = -999;
 	decorator->deadBushCount = 2;

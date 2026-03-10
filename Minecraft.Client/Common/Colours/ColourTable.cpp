@@ -328,7 +328,7 @@ void ColourTable::staticCtor()
 {
 	for(unsigned int i = eMinecraftColour_NOT_SET; i < eMinecraftColour_COUNT; ++i)
 	{
-		s_colourNamesMap.insert( unordered_map<wstring,eMinecraftColour>::value_type( ColourTableElements[i], (eMinecraftColour)i) );
+		s_colourNamesMap.insert( unordered_map<wstring,eMinecraftColour>::value_type( ColourTableElements[i], static_cast<eMinecraftColour>(i)) );
 	}
 }
 
@@ -374,7 +374,7 @@ void ColourTable::setColour(const wstring &colourName, int value)
 	auto it = s_colourNamesMap.find(colourName);
 	if(it != s_colourNamesMap.end())
 	{
-		m_colourValues[(int)it->second] = value;
+		m_colourValues[static_cast<int>(it->second)] = value;
 	}
 }
 
@@ -385,5 +385,5 @@ void ColourTable::setColour(const wstring &colourName, const wstring &value)
 
 unsigned int ColourTable::getColour(eMinecraftColour id)
 {
-	return m_colourValues[(int)id];
+	return m_colourValues[static_cast<int>(id)];
 }

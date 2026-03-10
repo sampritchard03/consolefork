@@ -27,7 +27,7 @@ StitchedTexture::StitchedTexture(const wstring &name, const wstring &filename) :
 {
 
 	// 4J Initialisers
-	source = NULL;
+	source = nullptr;
 	rotated = false;
 	x = 0;
 	y = 0;
@@ -41,9 +41,9 @@ StitchedTexture::StitchedTexture(const wstring &name, const wstring &filename) :
 	heightTranslation = 0.0f;
 	frame = 0;
 	subFrame = 0;
-	frameOverride = NULL;
+	frameOverride = nullptr;
 	flags = 0;
-	frames = NULL;
+	frames = nullptr;
 	m_fileName = filename;
 
 }
@@ -96,10 +96,10 @@ void StitchedTexture::init(Texture *source, vector<Texture *> *frames, int x, in
 	float marginX = 0.0f; //0.01f / source->getWidth();
 	float marginY = 0.0f; //0.01f / source->getHeight();
 
-	this->u0 = x / (float) source->getWidth() + marginX;
-	this->u1 = (x + width) / (float) source->getWidth() - marginX;
-	this->v0 = y / (float) source->getHeight() + marginY;
-	this->v1 = (y + height) / (float) source->getHeight() - marginY;
+	this->u0 = x / static_cast<float>(source->getWidth()) + marginX;
+	this->u1 = (x + width) / static_cast<float>(source->getWidth()) - marginX;
+	this->v0 = y / static_cast<float>(source->getHeight()) + marginY;
+	this->v1 = (y + height) / static_cast<float>(source->getHeight()) - marginY;
 
 #ifndef _CONTENT_PACKAGE
 	bool addBreakpoint = false;
@@ -114,8 +114,8 @@ void StitchedTexture::init(Texture *source, vector<Texture *> *frames, int x, in
 	}
 #endif
 
-	this->widthTranslation = width / (float) SharedConstants::WORLD_RESOLUTION;
-	this->heightTranslation = height / (float) SharedConstants::WORLD_RESOLUTION;
+	this->widthTranslation = width / static_cast<float>(SharedConstants::WORLD_RESOLUTION);
+	this->heightTranslation = height / static_cast<float>(SharedConstants::WORLD_RESOLUTION);
 }
 
 void StitchedTexture::replaceWith(StitchedTexture *texture)
@@ -158,7 +158,7 @@ float StitchedTexture::getU1(bool adjust/*=false*/) const
 float StitchedTexture::getU(double offset, bool adjust/*=false*/) const
 {
 	float diff = getU1(adjust) - getU0(adjust);
-	return getU0(adjust) + (diff * ((float) offset / SharedConstants::WORLD_RESOLUTION));
+	return getU0(adjust) + (diff * (static_cast<float>(offset) / SharedConstants::WORLD_RESOLUTION));
 }
 
 float StitchedTexture::getV0(bool adjust/*=false*/) const
@@ -174,7 +174,7 @@ float StitchedTexture::getV1(bool adjust/*=false*/) const
 float StitchedTexture::getV(double offset, bool adjust/*=false*/) const
 {
 	float diff = getV1(adjust) - getV0(adjust);
-	return getV0(adjust) + (diff * ((float) offset / SharedConstants::WORLD_RESOLUTION));
+	return getV0(adjust) + (diff * (static_cast<float>(offset) / SharedConstants::WORLD_RESOLUTION));
 }
 
 wstring StitchedTexture::getName() const
@@ -194,7 +194,7 @@ int StitchedTexture::getSourceHeight() const
 
 void StitchedTexture::cycleFrames()
 {
-	if (frameOverride != NULL)
+	if (frameOverride != nullptr)
 	{
 		pair<int, int> current = frameOverride->at(frame);
 		subFrame++;
@@ -252,10 +252,10 @@ int StitchedTexture::getFrames()
 */
 void StitchedTexture::loadAnimationFrames(BufferedReader *bufferedReader)
 {
-	if(frameOverride != NULL)
+	if(frameOverride != nullptr)
 	{
 		delete frameOverride;
-		frameOverride = NULL;
+		frameOverride = nullptr;
 	}
 	frame = 0;
 	subFrame = 0;
@@ -305,10 +305,10 @@ void StitchedTexture::loadAnimationFrames(BufferedReader *bufferedReader)
 
 void StitchedTexture::loadAnimationFrames(const wstring &string)
 {
-	if(frameOverride != NULL)
+	if(frameOverride != nullptr)
 	{
 		delete frameOverride;
-		frameOverride = NULL;
+		frameOverride = nullptr;
 	}
 	frame = 0;
 	subFrame = 0;
